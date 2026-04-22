@@ -1,0 +1,33 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+backend/.env.local
+
+# Logs
+*.log
+logs/
+.tmp-backend-verify/
+.tmp-frontend-verify/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Frontend outputs
+frontend/node_modules/
+frontend/dist/
+
+# Backend outputs
+backend/target/
+
+# Generic build outputs
+dist/
+build/
+out/
+coverage/
+__pycache__/
+*.pyc

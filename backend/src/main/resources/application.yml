@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ai-rd-workbench-demo-backend
+
+server:
+  address: 127.0.0.1
+  port: ${SERVER_PORT:5050}
+
+demo:
+  provider:
+    mode: ${APP_PROVIDER_MODE:mock}
+    real-enabled: ${REAL_PROVIDER_ENABLED:false}
+  rag:
+    enabled: ${APP_RAG_ENABLED:false}
+    knowledge-base-path: ${APP_RAG_KNOWLEDGE_BASE_PATH:../docs/knowledge}
+  mcp:
+    enabled: ${APP_MCP_ENABLED:false}

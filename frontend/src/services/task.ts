@@ -17,27 +17,27 @@ const unwrap = <T>(response: ApiResponse<T>): T => {
 }
 
 export const createTask = async (payload: CreateTaskPayload): Promise<TaskCard> => {
-  const { data } = await http.post<ApiResponse<TaskCard>>('/tasks', payload)
+  const { data } = await http.post<ApiResponse<TaskCard>>('/api/v1/tasks', payload)
   return unwrap(data)
 }
 
 export const fetchTasks = async (): Promise<TaskCard[]> => {
-  const { data } = await http.get<ApiResponse<TaskCard[]>>('/tasks')
+  const { data } = await http.get<ApiResponse<TaskCard[]>>('/api/v1/tasks')
   return unwrap(data)
 }
 
 export const fetchTaskDetail = async (taskId: string): Promise<TaskDetail> => {
-  const { data } = await http.get<ApiResponse<TaskDetail>>(`/tasks/${taskId}`)
+  const { data } = await http.get<ApiResponse<TaskDetail>>(`/api/v1/tasks/${taskId}`)
   return unwrap(data)
 }
 
 export const fetchTaskLogs = async (taskId: string): Promise<TaskLog[]> => {
-  const { data } = await http.get<ApiResponse<TaskLog[]>>(`/tasks/${taskId}/logs`)
+  const { data } = await http.get<ApiResponse<TaskLog[]>>(`/api/v1/tasks/${taskId}/logs`)
   return unwrap(data)
 }
 
 export const fetchTaskKnowledge = async (taskId: string): Promise<TaskKnowledgeReference[]> => {
-  const { data } = await http.get<ApiResponse<TaskKnowledgeReference[]>>(`/tasks/${taskId}/knowledge`)
+  const { data } = await http.get<ApiResponse<TaskKnowledgeReference[]>>(`/api/v1/tasks/${taskId}/knowledge`)
   return unwrap(data)
 }
 
@@ -46,6 +46,6 @@ export const updateTaskStepStatus = async (
   stepId: string,
   payload: UpdateTaskStepStatusPayload,
 ): Promise<TaskDetail> => {
-  const { data } = await http.patch<ApiResponse<TaskDetail>>(`/tasks/${taskId}/steps/${stepId}/status`, payload)
+  const { data } = await http.patch<ApiResponse<TaskDetail>>(`/api/v1/tasks/${taskId}/steps/${stepId}/status`, payload)
   return unwrap(data)
 }

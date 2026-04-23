@@ -9,6 +9,6 @@ const unwrap = <T>(response: ApiResponse<T>): T => {
 }
 
 export const createAgentRun = async (payload: CreateAgentRunPayload): Promise<AgentRun> => {
-  const { data } = await http.post<ApiResponse<AgentRun>>('/agent/runs', payload)
+  const { data } = await http.post<ApiResponse<AgentRun>>('/api/v1/agent/runs', payload)
   return unwrap(data)
 }

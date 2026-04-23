@@ -10,11 +10,11 @@ const unwrap = <T>(response: ApiResponse<T>): T => {
 }
 
 export const login = async (payload: AuthLoginPayload): Promise<AuthLoginResponse> => {
-  const { data } = await http.post<ApiResponse<AuthLoginResponse>>('/auth/login', payload)
+  const { data } = await http.post<ApiResponse<AuthLoginResponse>>('/api/v1/auth/login', payload)
   return unwrap(data)
 }
 
 export const fetchCurrentUser = async (): Promise<AuthUser> => {
-  const { data } = await http.get<ApiResponse<AuthUser>>('/auth/me')
+  const { data } = await http.get<ApiResponse<AuthUser>>('/api/v1/auth/me')
   return unwrap(data)
 }
